@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        textarea,
+        input[type="file"],
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box; /* Includes padding and border in element's total width */
+        }
+        
+        textarea {
+            height: 100px;
+            resize: vertical; /* Allows vertical resizing of textarea */
+        }
+        
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+        
+            input[type="text"],
+            textarea,
+            button {
+                font-size: 14px; /* Smaller font for smaller screens */
+            }
+        }
+        
+    </style>
+
+</head>
+<body>
+    <h1>Edit Blog</h1>
+    <form action="/admin/edit/<%= blog._id %>" method="POST" enctype="multipart/form-data">
+        <input type="text" name="heading" placeholder="Blog Heading" value="<%= blog.heading %>">
+        <input type="text" name="HeadingOne" placeholder="Additional Heading" value="<%= blog.HeadingOne %>">
+        <input type="text" name="loction" placeholder="Location" value="<%= blog.loction %>">
+        <textarea name="about" placeholder="About the Blog"><%= blog.about %></textarea>
+        <input type="file" name="image">
+        <input type="file" name="imgOne">
+        <textarea name="aboutOne" placeholder="Additional About Section"><%= blog.aboutOne %></textarea>
+        <input type="text" name="dates" placeholder="YYYY-MM-DD" value="<%= blog.dates %>">
+        <button type="submit">Update</button>
+    </form>
+    
+    
+    <a href="/admin">Back to Admin Panel</a>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Popup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 900; /* Below the popup */
+        }
+
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Ensure it appears above other elements */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+        
+        .popup.active {
+            display: block; /* Show popup when active */
+        }
+
+        .close-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #aaa;
+        }
+
+        .close-icon:hover {
+            color: #ff0000; /* Change color on hover */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .input-box {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .input-box input {
+            width: calc(100% - 20px); /* Adjust width to account for padding */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .input-box input:focus {
+            border-color: #007BFF; /* Change border color on focus */
+            outline: none;
+        }
+
+        .input-box input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100%; /* Ensure button takes full width */
+        }
+
+        .input-box input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        #open-whatsapp {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #open-whatsapp img {
+            width: 50px; /* Adjust the size of the WhatsApp logo */
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    <div id="popup" class="popup">
+        <span class="close-icon" onclick="hidePopup()">✖</span>
+        <div class="contact-form">
+            <form action="/add-user" method="POST" id="contact-form">
+                <h2>Quick Contact</h2>
+                <div class="input-box">
+                    <input type="text" required name="name" placeholder="Full Name">
+                </div>
+                <div class="input-box">
+                    <input type="email" required name="email" placeholder="Email">
+                </div>
+                <div class="input-box">
+                    <input type="tel" required name="number" placeholder="Number">
+                </div>
+                <div class="input-box">
+                    <input type="submit" value="Send">
+                </div>
+            </form>
+        </div>
+        <a href="#" id="open-whatsapp">
+            <img src="https://p7.hiclipart.com/preview/28/331/772/whatsapp-logo-whatsapp-thumbnail.jpg" alt="WhatsApp Logo">
+        </a>
+    </div>
+
+    <script>
+        function showPopup() {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+            popup.classList.add('active');
+            overlay.style.display = 'block'; // Show the overlay
+        }
+
+        function hidePopup() {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+            popup.classList.remove('active');
+            overlay.style.display = 'none'; // Hide the overlay
+        }
+
+        // Automatically show the popup every 10 seconds
+        setInterval(() => {
+            showPopup();
+        }, 10000); // Show the popup every 10 seconds
+
+        document.getElementById('open-whatsapp').addEventListener('click', function () {
+            const message = encodeURIComponent("Hello, Can I get more info?");
+            const phoneNumber = '919038205629'; // Replace with the correct international phone number
+            const url = `https://wa.me/${phoneNumber}?text=${message}`;
+
+            // Debugging: Log the URL to the console
+            console.log("Opening URL: ", url);
+
+            // Open the WhatsApp URL in a new tab
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>

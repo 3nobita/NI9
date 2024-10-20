@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Property</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: #28a745;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Add New Property</h1>
+    <form action="/add" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="categories">Categories:</label>
+        <select name="categories" id="categories" multiple>
+          <option value="Trending">Trending</option>
+          <option value="Ultra luxury">Ultra luxury</option>
+          <option value="Luxury Project">Luxury Project</option>
+          <option value="Premium Project">Premium Project</option>
+          <option value="Affordable Project">Affordable Project</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="plan">plan:</label>
+        <select id="plan" name="plan" required>
+          <option value="Plan A">Residential Projects</option>
+          <option value="Plan B">Commercial Projects</option>
+      </select>
+        
+        
+      </div>
+      <label for="icon">First Icon:</label>
+      <select id="icon" name="icon">
+          <option value="" disabled selected>Select an option</option>
+          <option value="Affordable.png">Affordable</option>
+          <option value="luxury.png">Luxury</option>
+          <option value="Approved.png">Approved</option>
+          <option value="Premium.png">Premium</option>
+          <option value="Trending.png">Treading</option>
+          <option value="Ultraluxury.png">Ultra luxury</option>
+          <option value="NewTrending.png">New Trending</option>
+      </select>
+  
+      <label for="rera">RERA Icon:</label>
+      <select id="rera" name="rera">
+          <option value="" disabled selected>Select an option</option>
+          <option value="RERAA.jpg">RERA</option>
+        </select>
+        <div class="form-group">
+          <label for="imageUrl">Image URL:</label>
+          <input type="file" id="imageUrl" name="imageUrl" accept="image/*">
+        </div>
+        <div class="form-group">
+          <label for="Plogo">Project Logo:</label>
+          <input type="file" id="Plogo" name="Plogo" accept="image/*">
+        </div>
+        <div class="form-group">
+          <label for="location">Location Name:</label>
+          <input type="text" name="location" id="location">
+        </div>
+      <div class="form-group">
+        <label for="locationImage">location Image:</label>
+        <input type="file" id="locationImage" name="locationImage" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="locationAbout">location About:</label>
+        <input type="text" id="locationAbout" name="locationAbout" >
+      </div>
+      <div class="form-group">
+        <label for="name">Property Name :</label>
+        <input type="text" name="name" id="name">
+      </div>
+      <div class="form-group">
+        <label for="by">Developer:</label>
+        <select id="developerId" name="developerId" required>
+          <option value="">Select a Developer</option>
+          <% developers.forEach(developer => { %>
+              <option value="<%= developer._id %>"><%= developer.name %></option>
+          <% }); %> 
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="price">Developer Name:</label>
+        <input type="text" name="by" id="by">
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="text" name="price" id="price">
+      </div>
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <input type="text" name="status" id="status">
+      </div>
+      <div class="form-group">
+        <label for="configuration">Configuration:</label>
+        <input type="text" name="configuration" id="configuration">
+      </div>
+      <div class="form-group">
+        <label for="possession">Possession Date:</label>
+        <input type="text" name="possession" id="possession">
+      </div>
+      <div class="form-group">
+        <label for="reraCode">rera Code:</label>
+        <input type="text" name="reraCode" id="reraCode">
+      </div>
+      <div class="form-group">
+        <label for="units">Units:</label>
+        <input type="number" name="units" id="units">
+      </div>
+      <div class="form-group">
+        <label for="land">Land:</label>
+        <input type="text" name="land" id="land">
+      </div>
+      <div class="form-group">
+        <label for="residence">Residence:</label>
+        <input type="text" name="residence" id="residence">
+      </div>
+      <div class="form-group">
+        <label for="builtup">Built-Up Area:</label>
+        <input type="text" name="builtup" id="builtup">
+      </div>
+      <div class="form-group">
+        <label for="blocks">Blocks:</label>
+        <input type="text" name="blocks" id="blocks">
+      </div>
+      <div class="form-group">
+        <label for="floor">Floor:</label>
+        <input type="text" name="floor" id="floor">
+      </div>
+      <div class="form-group">
+        <label for="noofunits">Number of Units:</label>
+        <input type="number" name="noofunits" id="noofunits">
+      </div>
+      <div class="form-group">
+        <label for="point1">Point 1:</label>
+        <input type="text" id="point1" name="point1">
+      </div>
+      <div class="form-group">
+        <label for="point2">Point 2:</label>
+        <input type="text" id="point2" name="point2">
+      </div>
+      <div class="form-group">
+        <label for="point3">Point 3:</label>
+        <input type="text" id="point3" name="point3">
+      </div>
+      <div class="form-group">
+        <label for="point4">Point 4:</label>
+        <input type="text" id="point4" name="point4">
+      </div>
+      <div class="form-group">
+        <label for="point5">Point 5:</label>
+        <input type="text" id="point5" name="point5">
+      </div>
+      <div class="form-group">
+        <label for="about">About:</label>
+        <textarea id="about" name="about" rows="4"></textarea>
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="unitytype">Unity Type:</label>
+        <input type="text" name="unitytype" id="unitytype">
+      </div>
+      <div class="form-group">
+        <label for="size">Size:</label>
+        <input type="text" name="size" id="size">
+      </div>
+      <div class="form-group">
+        <label for="range">Range:</label>
+        <input type="text" name="range" id="range">
+      </div>
+      <div class="form-group">
+        <label for="booking">Booking:</label>
+        <input type="text" name="booking" id="booking">
+      </div>
+      <div class="form-group">
+        <label for="token">Token:</label>
+        <input type="text" name="token" id="token">
+      </div>
+      <div class="form-group">
+        <label for="floorImg1">Floor Image 1:</label>
+        <input type="file" name="floorImg1" id="floorImg1" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg2">Floor Image 2:</label>
+        <input type="file" name="floorImg2" id="floorImg2" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg3">Floor Image 3:</label>
+        <input type="file" name="floorImg3" id="floorImg3" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg4">Floor Image 4:</label>
+        <input type="file" name="floorImg4" id="floorImg4" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg5">Floor Image 5:</label>
+        <input type="file" name="floorImg5" id="floorImg5" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="logoText1">Logo Text 1:</label>
+        <input type="text" name="logoText1" id="logoText1">
+      </div>
+      <div class="form-group">
+        <label for="logoText2">Logo Text 2:</label>
+        <input type="text" name="logoText2" id="logoText2">
+      </div>
+      <div class="form-group">
+        <label for="logoText3">Logo Text 3:</label>
+        <input type="text" name="logoText3" id="logoText3">
+      </div>
+      <div class="form-group">
+        <label for="logoText4">Logo Text 4:</label>
+        <input type="text" name="logoText4" id="logoText4">
+      </div>
+      <div class="form-group">
+        <label for="logoText5">Logo Text 5:</label>
+        <input type="text" name="logoText5" id="logoText5">
+      </div>
+      <div class="form-group">
+        <label for="logoText6">Logo Text 6:</label>
+        <input type="text" name="logoText6" id="logoText6">
+      </div>
+      <div class="form-group">
+        <label for="logoText7">Logo Text 7:</label>
+        <input type="text" name="logoText7" id="logoText7">
+      </div>
+      <div class="form-group">
+        <label for="logoText8">Logo Text 8:</label>
+        <input type="text" name="logoText8" id="logoText8">
+      </div>
+      <div class="form-group">
+        <label for="logoText9">Logo Text 9:</label>
+        <input type="text" name="logoText9" id="logoText9">
+      </div>
+      <div class="form-group">
+        <label for="logoText10">Logo Text 10:</label>
+        <input type="text" name="logoText10" id="logoText10">
+      </div>
+      <div class="form-group">
+        <label for="floorImg6">Floor Image 6:</label>
+        <input type="file" name="floorImg6" id="floorImg6" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg7">Floor Image 7:</label>
+        <input type="file" name="floorImg7" id="floorImg7" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg8">Floor Image 8:</label>
+        <input type="file" name="floorImg8" id="floorImg8" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg9">Floor Image 9:</label>
+        <input type="file" name="floorImg9" id="floorImg9" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg10">Floor Image 10:</label>
+        <input type="file" name="floorImg10" id="floorImg10" accept="image/*">
+      </div>
+      <button type="submit">Add Property</button>
+    </form>
+    <a href="/admin" class="back-link">Back to Listings</a>
+  </div>
+  <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+      const planSelect = document.getElementById('plan');
+      if (planSelect.value === "") {
+        planSelect.value = "Residential Projects"; // Set default value
+      }
+    });
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group textarea,
+    .form-group input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      display: block;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: #007bff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: text-decoration 0.3s;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Edit Test</h1>
+    <form action="/admin/update/test/<%= test._id %>" method="POST" enctype="multipart/form-data">
+
+      <div class="form-group">
+        <label for="logo">Logo:</label>
+        <input type="file" id="logo" name="logo" accept="image/*">
+        <% if (test.logo) { %>
+          <p>Current Logo: <img src="<%= test.logo %>" alt="Current Logo" style="max-width: 100px; height: auto;"></p>
+        <% } %>
+      </div>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Enter test name" value="<%= test.name %>">
+      </div>
+      <div class="form-group">
+        <label for="longDescription">Long Description:</label>
+        <textarea name="longDescription" id="longDescription" rows="4" placeholder="Enter a long description"><%= test.longDescription %></textarea>
+      </div>
+      <div class="form-group">
+        <label for="cityPresent">City Present:</label>
+        <input type="text" name="cityPresent" id="cityPresent" placeholder="Enter the city present" value="<%= test.cityPresent %>">
+      </div>
+      <button type="submit">Update</button>
+    </form>
+    <a href="/admin" class="back-link">Back to Listings</a>
+  </div>
+</body>
+
+</html>

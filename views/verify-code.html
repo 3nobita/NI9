@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verify Code</title>
+  <script>
+    function promptForCode() {
+      var code = prompt("Enter the access code:");
+      if (code !== null) {
+        var form = document.createElement("form");
+        form.method = "POST";
+        form.action = "/verify-code";
+        
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "code";
+        input.value = code;
+        form.appendChild(input);
+        
+        document.body.appendChild(form);
+        form.submit();
+      }
+    }
+    window.onload = promptForCode;
+  </script>
+</head>
+<body>
+  <h1>Verifying Code...</h1>
+</body>
+</html>

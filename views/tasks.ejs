@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks</title>
+</head>
+<body>
+  <h1>Tasks</h1>
+  <ul>
+    <% tasks.forEach(task => { %>
+      <li>
+        <strong>Title:</strong> <%= task.title %><br>
+        <strong>Description:</strong> <%= task.description %><br>
+        <strong>Status:</strong> <%= task.status %><br>
+        <strong>Assigned to:</strong>
+        <% if (task.developerId) { %>
+          <div>
+            <strong>Name:</strong> <%= task.developerId.name %><br>
+            <strong>Role:</strong> <%= task.developerId.role %><br>
+          </div>
+        <% } else { %>
+          Unassigned
+        <% } %>
+      </li>
+    <% }) %>
+  </ul>
+  <br>
+  <a href="/">Back to Home</a>
+</body>
+</html>

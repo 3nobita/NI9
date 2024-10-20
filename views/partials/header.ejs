@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon"
+    href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimXL0bikei-eesm1saCn_MXMLQX3izVDYMy37R73wrNhkcuVbAeulD1oX30y_cgID5ACHS7jI5Mmnf1CY9Sh3NY_aZCNuiFUoIRTyBQHYDuOyLUVmESRdfGtuFnXEo2ynt7hX_77shc8KovIpCHzxRPxzdMp7Uvb0SdcFk2Q2Kai9vm8nDNKA_3GdL_kM/s1080/faviin.jpg"
+    type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      position: relative;
+      margin-top: 100px;
+    }
+
+    .container img {
+      display: block;
+      width: 100%;
+    }
+
+    nav {
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      right: 0;
+      top: 0;
+      font-family: 'Montserrat', 'sans-serif';
+      height: 100px;
+      background-color: #f6f7fc;
+      padding: 0 5%;
+    }
+
+    nav .logo {
+      float: left;
+      width: 40%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      color: #dad7d7;
+    }
+
+    nav .links {
+      float: right;
+      padding: 0;
+      margin: 0;
+      width: 60%;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    nav .links li {
+      list-style: none;
+    }
+
+    nav .links a {
+      display: block;
+      padding: 1em;
+      font-size: 16px;
+      font-weight: bold;
+      color: #0c0c0c;
+      text-decoration: none;
+      position: relative;
+    }
+
+    nav .links a:hover {
+      color: #2D6F4F;
+    }
+
+    nav .links a::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out 0s;
+    }
+
+    nav .links a:hover::before {
+      visibility: visible;
+      transform: scaleX(1);
+      color: white;
+    }
+
+    #nav-toggle {
+      display: none;
+      /* Hide the checkbox */
+    }
+
+    nav .icon-burger {
+      display: none;
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    nav .icon-burger .line {
+      width: 30px;
+      height: 5px;
+      background-color: #070707;
+      margin: 5px;
+      border-radius: 3px;
+      transition: all .5s ease-in-out;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav .logo {
+        float: none;
+        width: auto;
+        justify-content: center;
+      }
+
+      nav .links {
+        float: none;
+        position: fixed;
+        z-index: 9;
+        left: -100%;
+        /* Initially hidden off-screen */
+        top: 100px;
+        width: 80%;
+        /* Width of the sliding menu */
+        height: calc(100% - 100px);
+        /* Fill remainoing height */
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: rgb(255, 255, 255);
+        transition: left 0.5s ease;
+        /* Slide effect */
+      }
+
+      nav :checked~.links {
+        left: 0;
+        /* Slide in */
+      }
+
+      nav .links a {
+        font-size: 20px;
+      }
+
+      nav .icon-burger {
+        display: block;
+      }
+
+      nav :checked~.icon-burger .line:nth-child(1) {
+        transform: translateY(10px) rotate(225deg);
+      }
+
+      nav :checked~.icon-burger .line:nth-child(3) {
+        transform: translateY(-10px) rotate(-225deg);
+      }
+
+      nav :checked~.icon-burger .line:nth-child(2) {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <input type="checkbox" id="nav-toggle">
+    <div class="logo"><img style="height: 50px;width:auto"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8r9QMkmfWOjL7_4JAs8Mw3s55r7f-9n71S9te2G4GEDmG5o0f9TsjHfs99BNhWxSrQqsA02AGhgACB2MrjmVtack_gBB_ozz-52tdg5FFYrVwpF4t97Jm3vYbQEM0toKbxKB6rcKZf3mx7_Cw_ReNQJuFBWQaKXMc5FQaI7EGZatIVrYHJgIwJ48KE60/s7768/file%20%287%29.png"
+        alt=""></div>
+    <ul class="links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/developer/66f6412ae6e171ec56830d46">Our Projects</a></li>
+      <li><a href="/trending">Blog</a></li>
+      <li><a href="/career">Career</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/admin">admin</a></li>
+    </ul>
+    <label for="nav-toggle" class="icon-burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </label>
+  </nav>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .sticky-bottom {
+      position: fixed;
+      bottom: 2em;
+      /* Adjusted for better visibility */
+      right: 2em;
+      /* Adjusted for better visibility */
+      z-index: 1000;
+      /* Ensure it's on top of other content */
+    }
+
+    .sticky-bottom img {
+      height: 5vw;
+      /* Responsive size */
+      width: 5vw;
+      /* mainotain aspect ratio */
+      max-height: 60px;
+      /* Cap the maximum size */
+      max-width: 60px;
+      /* Cap the maximum size */
+      border-radius: 15px;
+      transition: transform 0.2s;
+      /* Smooth scaling effect */
+    }
+
+    .sticky-bottom img:hover {
+      transform: scale(1.1);
+      /* Slightly enlarge on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sticky-bottom">
+    <a href="" id="open-whatsapp">
+      <img src="https://p7.hiclipart.com/preview/28/331/772/whatsapp-logo-whatsapp-thumbnail.jpg" alt="WhatsApp Logo">
+    </a>
+  </div>
+  <script>
+    document.getElementById('open-whatsapp').addEventListener('click', function () {
+      const message = encodeURIComponent("Hello, Can I get more info?");
+      const phoneNumber = '919038205629'; // Replace with the correct international phone number
+      const url = `https://wa.me/${phoneNumber}?text=${message}`;
+
+      // Debugging: Log the URL to the console
+      console.log("Opening URL: ", url);
+
+      // Open the WhatsApp URL in a new tab
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add   </title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Add test   </h1>
+    <form action="/tasks" method="POST" enctype="multipart/form-data">
+      <select id="developerId" name="developerId" required>
+        <% developers.forEach(developer => { %>
+          <option value="<%= developer._id %>"><%= developer.name %></option>
+        <% }) %>
+      </select>
+      <div class="form-group">
+        <label for="categories">Categories:</label>
+        <select name="categories" id="categories" multiple>
+          <option value="Residential Projects">Residential Projects</option>
+          <option value="Commercial Projects">Commercial Projects</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="imageUrl">Image URL:</label>
+        <input type="file" id="imageUrl" name="imageUrl" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+      </div>
+      <div class="form-group">
+        <label for="by">By:</label>
+        <input type="text" name="by" id="by">
+      </div>
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" name="location" id="location">
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="text" name="price" id="price">
+      </div>
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <input type="text" name="status" id="status">
+      </div>
+      <div class="form-group">
+        <label for="configuration">Configuration:</label>
+        <input type="text" name="configuration" id="configuration">
+      </div>
+      <div class="form-group">
+        <label for="possession">Possession Date:</label>
+        <input type="date" name="possession" id="possession">
+      </div>
+      <div class="form-group">
+        <label for="units">Units:</label>
+        <input type="number" name="units" id="units">
+      </div>
+      <div class="form-group">
+        <label for="land">Land:</label>
+        <input type="text" name="land" id="land">
+      </div>
+      <div class="form-group">
+        <label for="residence">Residence:</label>
+        <input type="text" name="residence" id="residence">
+      </div>
+      <div class="form-group">
+        <label for="builtup">Built-Up Area:</label>
+        <input type="text" name="builtup" id="builtup">
+      </div>
+      <div class="form-group">
+        <label for="blocks">Blocks:</label>
+        <input type="text" name="blocks" id="blocks">
+      </div>
+      <div class="form-group">
+        <label for="floor">Floor:</label>
+        <input type="text" name="floor" id="floor">
+      </div>
+      <div class="form-group">
+        <label for="noofunits">Number of Units:</label>
+        <input type="number" name="noofunits" id="noofunits">
+      </div>
+      <div class="form-group">
+        <label for="rera">RERA:</label>
+        <input type="text" name="rera" id="rera">
+      </div>
+      <div class="form-group">
+        <label for="highlight">Highlight:</label>
+        <textarea name="highlight" id="highlight" rows="2"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="about">About:</label>
+        <textarea name="about" id="about" rows="4"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="unitytype">Unity Type:</label>
+        <input type="text" name="unitytype" id="unitytype">
+      </div>
+      <div class="form-group">
+        <label for="size">Size:</label>
+        <input type="text" name="size" id="size">
+      </div>
+      <div class="form-group">
+        <label for="range">Range:</label>
+        <input type="text" name="range" id="range">
+      </div>
+      <div class="form-group">
+        <label for="booking">Booking:</label>
+        <input type="text" name="booking" id="booking">
+      </div>
+      <div class="form-group">
+        <label for="token">Token:</label>
+        <input type="text" name="token" id="token">
+      </div>
+      <div class="form-group">
+        <label for="plans">Plans:</label>
+        <input type="text" name="plans" id="plans">
+      </div>
+      <div class="form-group">
+        <label for="amenities">Amenities:</label>
+        <input type="text" name="amenities" id="amenities">
+      </div>
+      <div class="form-group">
+        <label for="virtual">Virtual Tour:</label>
+        <input type="text" name="virtual" id="virtual">
+      </div>
+      <!-- New fields -->
+      <div class="form-group">
+        <label for="dis1">Description 1:</label>
+        <input type="text" name="dis1" id="dis1">
+      </div>
+      <div class="form-group">
+        <label for="dis2">Description 2:</label>
+        <input type="text" name="dis2" id="dis2">
+      </div>
+      <div class="form-group">
+        <label for="dis3">Description 3:</label>
+        <input type="text" name="dis3" id="dis3">
+      </div>
+      <div class="form-group">
+        <label for="dis4">Description 4:</label>
+        <input type="text" name="dis4" id="dis4">
+      </div>
+      <div class="form-group">
+        <label for="dis5">Description 5:</label>
+        <input type="text" name="dis5" id="dis5">
+      </div>
+      <div class="form-group">
+        <label for="dis6">Description 6:</label>
+        <input type="text" name="dis6" id="dis6">
+      </div>
+      <div class="form-group">
+        <label for="dis7">Description 7:</label>
+        <input type="text" name="dis7" id="dis7">
+      </div>
+      <div class="form-group">
+        <label for="dis8">Description 8:</label>
+        <input type="text" name="dis8" id="dis8">
+      </div>
+      <div class="form-group">
+        <label for="dis9">Description 9:</label>
+        <input type="text" name="dis9" id="dis9">
+      </div>
+      <div class="form-group">
+        <label for="dis10">Description 10:</label>
+        <input type="text" name="dis10" id="dis10">
+      </div>
+      <div class="form-group">
+        <label for="pdf1">PDF 1:</label>
+        <input type="file" name="pdf1" id="pdf1" accept="application/pdf">
+      </div>
+      <div class="form-group">
+        <label for="pdf2">PDF 2:</label>
+        <input type="file" name="pdf2" id="pdf2" accept="application/pdf">
+      </div>
+      <div class="form-group">
+        <label for="pdf3">PDF 3:</label>
+        <input type="file" name="pdf3" id="pdf3" accept="application/pdf">
+      </div>
+      <div class="form-group">
+        <label for="pdf4">PDF 4:</label>
+        <input type="file" name="pdf4" id="pdf4" accept="application/pdf">
+      </div>
+      <div class="form-group">
+        <label for="floorImg1">Floor Image 1:</label>
+        <input type="file" name="floorImg1" id="floorImg1" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg2">Floor Image 2:</label>
+        <input type="file" name="floorImg2" id="floorImg2" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg3">Floor Image 3:</label>
+        <input type="file" name="floorImg3" id="floorImg3" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg4">Floor Image 4:</label>
+        <input type="file" name="floorImg4" id="floorImg4" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg5">Floor Image 5:</label>
+        <input type="file" name="floorImg5" id="floorImg5" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg6">Floor Image 6:</label>
+        <input type="file" name="floorImg6" id="floorImg6" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg7">Floor Image 7:</label>
+        <input type="file" name="floorImg7" id="floorImg7" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg8">Floor Image 8:</label>
+        <input type="file" name="floorImg8" id="floorImg8" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg9">Floor Image 9:</label>
+        <input type="file" name="floorImg9" id="floorImg9" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="floorImg10">Floor Image 10:</label>
+        <input type="file" name="floorImg10" id="floorImg10" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="logoText3">Logo Text 3:</label>
+        <input type="text" name="logoText3" id="logoText3">
+      </div>
+      <div class="form-group">
+        <label for="logoText4">Logo Text 4:</label>
+        <input type="text" name="logoText4" id="logoText4">
+      </div>
+      <div class="form-group">
+        <label for="logoText5">Logo Text 5:</label>
+        <input type="text" name="logoText5" id="logoText5">
+      </div>
+      <div class="form-group">
+        <label for="logoText6">Logo Text 6:</label>
+        <input type="text" name="logoText6" id="logoText6">
+      </div>
+      <div class="form-group">
+        <label for="logoText7">Logo Text 7:</label>
+        <input type="text" name="logoText7" id="logoText7">
+      </div>
+      <div class="form-group">
+        <label for="logoText8">Logo Text 8:</label>
+        <input type="text" name="logoText8" id="logoText8">
+      </div>
+      <div class="form-group">
+        <label for="logoText9">Logo Text 9:</label>
+        <input type="text" name="logoText9" id="logoText9">
+      </div>
+      <div class="form-group">
+        <label for="logoText10">Logo Text 10:</label>
+        <input type="text" name="logoText10" id="logoText10">
+      </div>
+      <div class="form-group">
+        <label for="virtualImg1">Virtual Image 1:</label>
+        <input type="file" name="virtualImg1" id="virtualImg1" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="virtualImg2">Virtual Image 2:</label>
+        <input type="file" name="virtualImg2" id="virtualImg2" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="virtualImg3">Virtual Image 3:</label>
+        <input type="file" name="virtualImg3" id="virtualImg3" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="virtualImg4">Virtual Image 4:</label>
+        <input type="file" name="virtualImg4" id="virtualImg4" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="virtualImg5">Virtual Image 5:</label>
+        <input type="file" name="virtualImg5" id="virtualImg5" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="virtualImg6">Virtual Image 6:</label>
+        <input type="file" name="virtualImg6" id="virtualImg6" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="virtualImg7">Virtual Image 7:</label>
+        <input type="file" name="virtualImg7" id="virtualImg7" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="virtualImg8">Virtual Image 8:</label>
+        <input type="file" name="virtualImg8" id="virtualImg8" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="virtualVid8">Virtual Video 8:</label>
+        <input type="file" name="virtualVid8" id="virtualVid8" accept="video/*">
+      </div>
+      <div class="form-group">
+        <label for="virtualVid9">Virtual Video 9:</label>
+        <input type="file" name="virtualVid9" id="virtualVid9" accept="video/*">
+      </div>
+      <div class="form-group">
+        <label for="virtualVid10">Virtual Video 10:</label>
+        <input type="file" name="virtualVid10" id="virtualVid10" accept="video/*">
+      </div>
+      <div class="form-group">
+        <label for="lastImg">Last Image:</label>
+        <input type="file" name="lastImg" id="lastImg" accept="image/*">
+      </div>
+      <div class="form-group">
+        <label for="lastText">Last Text:</label>
+        <input type="text" name="lastText" id="lastText">
+      </div>
+      <button type="submit">Add   </button>
+    </form>
+    <a href="/admin" class="back-link">Back to Listings</a>
+  </div>
+</body>
+
+</html>
